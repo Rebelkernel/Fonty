@@ -1,17 +1,16 @@
-# FONTY
+
+# <img width="40px" height="auto" alt="Frame 42" src="https://github.com/user-attachments/assets/4eb47dbf-af21-47a1-8c68-13d1c4235ea3" /> FONTY
 [![Alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Windows 10+](https://img.shields.io/badge/Windows-10%20(1809%2B)%20%7C%2011-0078D6)](#system-requirements)
 [![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%202-24C8DB)](https://tauri.app)
 
+
 **An open source, lightweight, font manager for Windows.**
 
-
+Browse through your local font library, activate fonts only when you need them, and pull in Google Fonts on demand — all without permanently installing any font.
 
 <img width="80%" height="auto" alt="FONTY_260424_1931" src="https://github.com/user-attachments/assets/8b907d33-d59b-49f9-b05b-92412044a578" />
-
-
-Browse through your local font library, activate fonts only when you need them, and pull in Google Fonts on demand — all without permanently installing any font.
 
 > **Status:** Alpha. Built through LLM's and tested by a graphic designer on a Windows machine. Expect rough edges. File issues liberally. Feedback is very much welcome :)
 
