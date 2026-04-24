@@ -1,11 +1,15 @@
 # FONTY
-
-**An open source, lightweight, font manager for Windows.**
-
 [![Alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Windows 10+](https://img.shields.io/badge/Windows-10%20(1809%2B)%20%7C%2011-0078D6)](#system-requirements)
 [![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%202-24C8DB)](https://tauri.app)
+
+**An open source, lightweight, font manager for Windows.**
+
+
+
+<img width="1400" height="900" alt="FONTY_260424_1931" src="https://github.com/user-attachments/assets/8b907d33-d59b-49f9-b05b-92412044a578" />
+
 
 Browse through your local font library, activate fonts only when you need them, and pull in Google Fonts on demand — all without permanently installing any font.
 
@@ -24,6 +28,14 @@ Browse through your local font library, activate fonts only when you need them, 
 - **Pinned dock** for live preview comparison.
 - **Restore on launch** — your active set survives quitting and reopening FONTY, and survives reboots via HKCU.
 - **Auto-cleaning cache** — deactivated Google fonts stay on disk for 5 minutes in case you change your mind, then a background janitor reclaims the space.
+
+## Styles & weights grouped in families
+
+<img width="80" height="auto" alt="FONTY_260424_1908" src="https://github.com/user-attachments/assets/dc2c414e-e8e0-4bcf-a25b-c114c274b17a" />
+
+## Compare fonts by pinning
+
+<img width="80%" height="auto" alt="FONTY_260424_1947" src="https://github.com/user-attachments/assets/c239751d-2fc3-403b-86c8-4c3ed9071566" />
 
 ## Why another font manager?
 
