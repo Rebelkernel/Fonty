@@ -7,16 +7,16 @@
 [![Windows 10+](https://img.shields.io/badge/Windows-10%20(1809%2B)%20%7C%2011-0078D6)](#system-requirements)
 [![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%202-24C8DB)](https://tauri.app)
 
-Browse a big local font library, activate fonts only when you need them, and pull in Google Fonts on demand — all without admin rights, without touching `C:\Windows\Fonts`, and without permanently installing anything.
+Browse through your local font library, activate fonts only when you need them, and pull in Google Fonts on demand — all without permanently installing any font.
 
-> **Status:** Alpha. Built and tested by one designer on one Windows 11 machine. Expect rough edges. File issues liberally.
+> **Status:** Alpha. Built through LLM's and tested by a graphic designer on a Windows machine. Expect rough edges. File issues liberally. Feedback is very much welcome :)
 
 ---
 
 ## What it does
 
 - **Scans your local font folders** (even 80 000+ files) and shows them grouped by family, with live per-row previews.
-- **Activates fonts temporarily** for the current Windows session — Word, Affinity, Figma Desktop, Illustrator, and everything else that reads DirectWrite / GDI picks them up instantly via `WM_FONTCHANGE`.
+- **Activates fonts temporarily** for the current Windows session — Word, Affinity, Figma, etc. everything that reads DirectWrite / GDI picks them up instantly via `WM_FONTCHANGE`.
 - **Deactivates cleanly** — no leftover files, no orphan registry entries, no restart required.
 - **Per-user HKCU activation** — zero admin prompts, never writes to `C:\Windows\Fonts`.
 - **Google Fonts built in** — browse the full catalog, activate any family or single variant, pre-fetches URLs in batches so bulk activation is fast.
@@ -27,7 +27,7 @@ Browse a big local font library, activate fonts only when you need them, and pul
 
 ## Why another font manager?
 
-FontBase is the closest comparable — and inspired parts of FONTY's Google Fonts pipeline — but FONTY is aimed at a narrower slice: designers who want **fast**, **temporary**, per-user activation with minimal ceremony, no cloud account, and nothing stored outside `%LOCALAPPDATA%`.
+FONTY is aimed at designers who want **fast**, **temporary**, per-user activation with minimal ceremony, no cloud account, and nothing stored outside `%LOCALAPPDATA%`.
 
 ## System requirements
 
@@ -46,13 +46,6 @@ FontBase is the closest comparable — and inspired parts of FONTY's Google Font
 ### Uninstall
 
 Uninstall from Windows Settings → Apps like any normal application. FONTY's own settings panel has a **"Uninstall all user fonts from system"** option if you want to wipe the per-user font folder on your way out.
-
-## Key shortcuts
-
-| Shortcut | What it does |
-|---|---|
-| `F12` | Open DevTools (useful when something's off and you need to copy the error log) |
-| Right-click any row | Context menu with activate / deactivate / collections / copy name |
 
 ## Where your data lives
 
@@ -136,7 +129,6 @@ PRs welcome for small fixes. For bigger changes, open an issue first so we can t
 
 ## Credits
 
-- Inspired in pipeline shape by [FontBase](https://fontba.se) (same Google Fonts sourcing via the CSS / Java UA trick).
 - Built on [Tauri v2](https://tauri.app), React 19, Tailwind v4, Zustand, TanStack Virtual.
 - Rust font parsing via [ttf-parser](https://github.com/RazrFalcon/ttf-parser).
 
