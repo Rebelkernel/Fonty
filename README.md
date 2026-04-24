@@ -1,10 +1,10 @@
-
-# <img width="40px" height="auto" alt="Frame 42" src="https://github.com/user-attachments/assets/4eb47dbf-af21-47a1-8c68-13d1c4235ea3" /> FONTY
 [![Alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Windows 10+](https://img.shields.io/badge/Windows-10%20(1809%2B)%20%7C%2011-0078D6)](#system-requirements)
 [![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%202-24C8DB)](https://tauri.app)
 
+
+# <img width="40px" height="auto" alt="Frame 42" src="https://github.com/user-attachments/assets/4eb47dbf-af21-47a1-8c68-13d1c4235ea3" /> FONTY
 
 **An open source, lightweight, font manager for Windows.**
 
