@@ -38,7 +38,9 @@ Browse through your local font library, activate fonts only when you need them, 
 
 ## Why another font manager?
 
-FONTY is aimed at designers who want **fast**, **temporary**, per-user activation with minimal ceremony, no cloud account, and nothing stored outside `%LOCALAPPDATA%`.
+The font manager software landscape is outdated, with only one player delivering a "stable" and modern software. If they don't deliver, or an individual error blocks the user from utilizing the font, there is no real alternative. FONTY is the result of that frustration. Fonty is designed to cover that gap **fast**, **temporary activation**, minimal ceremony, no cloud account, and nothing stored outside `%LOCALAPPDATA%`. 
+
+- 100% LOCAL Your tool, your power! I hope for the community to contribute to and grow this and other open-source tools.
 
 ## System requirements
 
