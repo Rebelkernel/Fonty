@@ -12,7 +12,7 @@ Browse through your local font library, activate fonts only when you need them, 
 
 <img width="80%" height="auto" alt="FONTY_260424_1931" src="https://github.com/user-attachments/assets/8b907d33-d59b-49f9-b05b-92412044a578" />
 
-> **Status:** Alpha. Built through LLM's and tested by a graphic designer on a Windows machine. Expect rough edges. File issues liberally. Feedback is very much welcome :)
+> **Status:** Alpha. From designers to designers. Built with LLMs and tested on a Windows machine. Expect rough edges. File issues liberally. Feedback is very much welcome :)
 
 ---
 
