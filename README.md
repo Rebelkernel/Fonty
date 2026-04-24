@@ -8,7 +8,7 @@
 
 
 
-<img width="1400" height="900" alt="FONTY_260424_1931" src="https://github.com/user-attachments/assets/8b907d33-d59b-49f9-b05b-92412044a578" />
+<img width="80%" height="auto" alt="FONTY_260424_1931" src="https://github.com/user-attachments/assets/8b907d33-d59b-49f9-b05b-92412044a578" />
 
 
 Browse through your local font library, activate fonts only when you need them, and pull in Google Fonts on demand — all without permanently installing any font.
@@ -31,7 +31,7 @@ Browse through your local font library, activate fonts only when you need them, 
 
 ## Styles & weights grouped in families
 
-<img width="80" height="auto" alt="FONTY_260424_1908" src="https://github.com/user-attachments/assets/dc2c414e-e8e0-4bcf-a25b-c114c274b17a" />
+<img width="80%" height="auto" alt="FONTY_260424_1908" src="https://github.com/user-attachments/assets/dc2c414e-e8e0-4bcf-a25b-c114c274b17a" />
 
 ## Compare fonts by pinning
 
