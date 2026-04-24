@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Dela Gothic One", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  /* Dark mode (default when no data-theme attribute) */
+  --color-bg: #141414;
+  --color-surface: #141414;
+  --color-surface-2: #222222;
+  --color-surface-3: #2a2a2a;
+  --color-border: transparent;
+  --color-border-soft: transparent;
+  --color-text: #9A9A9A;
+  --color-text-dim: #8a8a8a;
+  --color-text-faint: #6a6a6a;
+  --color-accent: #00b8ff;
+  --color-accent-soft: rgba(0, 184, 255, 0.15);
+  --color-accent-hover: #33c7ff;
+  --color-pin: #7dd3fc;
+  --color-star: #fbbf24;
+  --color-danger: #f87171;
+  --color-row-hover: #1E1E1E;
+  --color-row-selected: #2C2C2C;
+  --color-row-selected-text: #FFFFFF;
+  --color-input-bg: #222222;
+  --color-settings-surface: #1a1a1a;
+  --shadow-card: none;
+}
+
+:root[data-theme="light"] {
+  --color-bg: #EFEEEC;
+  --color-surface: #EFEEEC;
+  --color-surface-2: #DCD7D0;
+  --color-surface-3: #C9C3BA;
+  --color-border: transparent;
+  --color-border-soft: transparent;
+  --color-text: #4A4A4A;
+  --color-text-dim: #6A6A6A;
+  --color-text-faint: #8a8a8a;
+  --color-accent: #00a5e8;
+  --color-accent-soft: rgba(0, 165, 232, 0.12);
+  --color-accent-hover: #008bc7;
+  --color-pin: #0ea5e9;
+  --color-star: #d97706;
+  --color-danger: #b91c1c;
+  --color-row-hover: #E4E2DE;
+  --color-row-selected: #FFFFFF;
+  --color-row-selected-text: #4A4A4A;
+  --color-input-bg: #FFFFFF;
+  --color-settings-surface: #FFFFFF;
+  --shadow-card: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* When the app is doing a long-running operation (activation batch, Google
+   download, scan) the root gets data-busy="true" so any disabled button
+   shows a "progress" cursor instead of Windows's red "forbidden" sign. */
+[data-busy="true"] button:disabled,
+[data-busy="true"] [disabled] {
+  cursor: progress !important;
+}
+
+/* Activation-dot loading animation. Clockwise while activating,
+   counter-clockwise while deactivating. */
+@keyframes fonty-spin-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes fonty-spin-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+html {
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.fonty-logo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* App mark: SVG file (see TopBar). The SVG already carries its own
+   rounded background fill, so we just size the img here. */
+.fonty-mark-img {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  image-rendering: -webkit-optimize-contrast;
+  user-select: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-2);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-3);
+}
+
+/* Hover-reveal utility */
+.hover-reveal {
+  opacity: 0;
+  transition: opacity 150ms ease;
+  pointer-events: none;
+}
+.hover-reveal-parent:hover .hover-reveal,
+.hover-reveal-parent:focus-within .hover-reveal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Folder tree: rounded L connectors.
+   .v   — straight through-line (ancestor that continues down)
+   .turn — L-shape from top to centre with rounded corner (this node)
+   .turn.continue — vertical line continues below the L (for non-last siblings)
+
+   Alignment math:
+     Rows have `ml-2` (8px) outer + a guides column with `pl-[10px]` + a highlight
+     with `pl-[10px]` before the dot (w-3 = 12px). So the dot's x-center sits
+     at 8 + 10 + D*12 + 10 + 6 = 34 + D*12 from the aside's left edge.
+     Each guide "cell" in the guides column is 12px wide (same as the dot
+     column). For the turn's vertical to hit the PARENT's dot x-center, the
+     stroke needs to sit 16px from the cell's left edge, not at its center.
+     That's what `left: 16` below is for.
+     We also offset top by 5px so the vertical starts just below the parent
+     dot's bottom edge instead of passing through the parent dot itself. */
+.tree-guide {
+  position: relative;
+  width: 12px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.tree-guide.v::before {
+  content: "";
+  position: absolute;
+  /* Same x as the turn's vertical so through-lines meet turns cleanly. */
+  left: 16px;
+  top: -50%;
+  bottom: -50%;
+  width: 1px;
+  background: rgba(128, 128, 128, 0.35);
+}
+.tree-guide.turn::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: calc(-50% + 5px);
+  /* height shortened to keep the arc landing on this row's centre even
+     though the top was nudged down 5px. */
+  width: 4px;
+  height: calc(100% - 5px);
+  border-left: 1px solid rgba(128, 128, 128, 0.35);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+  border-bottom-left-radius: 4px;
+}
+.tree-guide.turn.continue::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  bottom: -50%;
+  width: 1px;
+  background: rgba(128, 128, 128, 0.35);
+}
+
+/* Drop zone highlight on the top bar when drag is active */
+.dropzone-active {
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+/* Thin line-style range slider used in the top bar */
+.fonty-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 16px;
+  cursor: pointer;
+}
+.fonty-slider::-webkit-slider-runnable-track {
+  height: 1px;
+  background: var(--color-text-faint);
+  border-radius: 1px;
+}
+.fonty-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--color-text);
+  border: none;
+  margin-top: -4.5px;
+  transition: transform 120ms ease;
+}
+.fonty-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.fonty-slider:focus {
+  outline: none;
+}
+
+/* Shared pill button used for +Add / Open Info / context pills. No border,
+   background driven by --color-surface-2 so bright & dark modes match spec. */
+.btn-pill {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: none;
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: filter 150ms ease, opacity 150ms ease;
+  cursor: pointer;
+}
+.btn-pill:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+.btn-pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-pill-sm {
+  padding: 4px 10px;
+  font-size: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}

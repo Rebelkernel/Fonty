@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "FONTY",
+  "version": "0.1.0",
+  "identifier": "com.fonty.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "FONTY",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 600,
+        "dragDropEnabled": true
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "nsis"],
+    "publisher": "Adria",
+    "category": "Utility",
+    "shortDescription": "Local Windows font manager with temporal activation",
+    "longDescription": "FONTY is a lightweight Windows font manager for designers. Browse your local font library (tens of thousands of TTF/OTF files supported), activate fonts temporarily for the current session without installing them system-wide, and pull in Google Fonts on demand. Per-user activation via HKCU — no admin required, no writes to C:\\Windows\\Fonts.",
+    "homepage": "https://github.com/Rebelkernel/Fonty",
+    "copyright": "Copyright © 2026 Adria — MIT License",
+    "licenseFile": "../LICENSE",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "wix": {
+        "language": ["en-US"]
+      },
+      "nsis": {
+        "installMode": "perMachine",
+        "installerIcon": "icons/icon.ico"
+      }
+    }
+  }
+}
