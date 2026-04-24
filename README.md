@@ -1,6 +1,6 @@
 # FONTY
 
-**A lightweight, temporal font manager for Windows.**
+**An open source, lightweight, font manager for Windows.**
 
 [![Alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
